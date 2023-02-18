@@ -183,7 +183,7 @@ int main(void) {
   procedure();
 
   //Functions perform tasks and return one or more values
-  printf("A function refers to a block of code that returns one or more values, (usually executes a task as well):\n");
+  printf("A function refers to a block of code that returns one or more values, (usually executes a task as well):\n\n");
   //This is a function
   printf("1 + 2 = ");
   printf("%d\n", function());
