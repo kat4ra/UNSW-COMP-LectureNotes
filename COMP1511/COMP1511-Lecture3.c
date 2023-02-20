@@ -27,10 +27,10 @@
     boldCyan();
     printf("Input a number from 1-100:\n");
     reset();
-    int number;
-    scanf("%d",&number);
+    int numberExample;
+    scanf("%d",&numberExample);
 
-    return number;
+    return numberExample;
   }
 
   int evenNumberCheck(int number) {
@@ -48,6 +48,15 @@
     }
     
   }
+
+  //Functions for example 2(lower case to upper case)
+  char letterInput() 
+{
+  char letter;
+  scanf("%c", &letter);
+  
+  return letter;
+}
 
 //Lecture 3
 int main(void) {
@@ -98,9 +107,9 @@ int main(void) {
 
   //Normally, after any of these [if], [else if] ,or [else] statements return true and the code{} under them is executed,
   //The next line of code will be run is the first line that is not an [else if] or [else] statement.
-  printf("If the (condition) inside the brackets returns a TRUE statement,\n");
-  printf("The code in the following {} will be executed");
-  printf("Then all associated [else if] and [else] statements will be skipped.\n");
+  printf("If the (condition) inside the brackets is a TRUE statement,\n");
+  printf("The code in the {curly brackets} will be executed\n");
+  printf("Then all associated [else if] and [else] statements will be skipped.\n\n");
   //These lines [printf] lines will be run if the user types y
   //Otherwise, the program will finish with [return 0;]
 
@@ -122,7 +131,7 @@ int main(void) {
   boldGreen();
   printf(">");
   reset();
-  printf("\t greater than");
+  printf("\t greater than\n\n");
     if (5 > 10)
     {
       //false
@@ -152,7 +161,7 @@ int main(void) {
   boldGreen();
   printf("==");
   reset();
-  printf("\t equals");
+  printf("\t equals\n\n");
     if (5 == 10)
     {
       //false
@@ -166,7 +175,7 @@ int main(void) {
     if (10 != 5)
     {
       //true
-      printf("\t 10 is not equal to 5\n\n");
+      printf("\t 10 is not equal to 5\n");
     }
     
   //Here, not every if statement is true
@@ -180,13 +189,14 @@ int main(void) {
   reset();
 
   //What if I have more than one condition?
-  printf("We can also use the && operator to have more than one (condition) for our if statement\n");
+  printf("We can also use the && operator to have more than one (condition) for our [if] statement.\n");
   printf("If either (condition) needs to satisfied, then we use the || operator.\n");
   //&& means AND and || means OR
-  printf("The | symbol is usually next to ], or above the ENTER key\n\n");
+  printf("The | symbol is usually next to ], or above the ENTER key.\n\n");
 
   //Let's try to include some user input this time
-  printf("Here are some examples for the uses of the && and || operators\n\n");
+  printf("Here are some examples for the uses of the && and || operators:\n\n");
+
 
   //Silly number guessing game
   int number = 23;
@@ -199,20 +209,19 @@ int main(void) {
   scanf("%d", &guess2);
   reset();
 
-    if (guess1 == number || guess2 == number)
+    if (guess1 == number && guess2 == number)
     {
-      printf("Your first guess OR your second guess was the right number!\n");
+      printf("Wow confident aren't you?\n\n");
     }
 
-    else if (guess1 == number && guess2 == number)
+    else if (guess1 == number || guess2 == number)
     {
-      //Both guesses were the same as [number]
-      printf("Wow confident aren't you?\n");
+      printf("Your first guess OR your second guess was the right number!\n\n");
     }
     
     else
     {
-      printf("You guessed the wrong number ;-;\n");
+      printf("You guessed the wrong number ;-;\n\n");
     }
     
   //There is also the ! operator, which we can put in front of our !(condition)
@@ -231,6 +240,7 @@ int main(void) {
     printf("12 is greater than or equal to 10\n\n");
   }
   
+
   //While loops
 
   boldRed();
@@ -252,7 +262,6 @@ int main(void) {
     printf("\tConditional loops\n");
     reset();
 
-
   //While loops follow a similar syntax to if statments
   //We can make an infinite loop if the (condition) NEVER changes
   boldCyan();
@@ -261,68 +270,199 @@ int main(void) {
   char forever;
   //Make sure you want to print fishes forever
   scanf("%c",&forever);
-  
+  forever = getchar();
+
   //If they typed y for yes:
   if (forever == 'y')
   {
-    while (forever == 'y')
-    //As long as the (condition) inside the brackets is TRUE,
-    {
+      while (1 == 1)
+      //As long as the (condition) inside the brackets is TRUE,
+      {
       //print a fish forever and ever..
       printf("<>< ");
+      }
+  //The {code} inside the curly brackets will continue to execute
+  }
+
+  //Count loops
+  boldBlue();
+  printf("\nCount Loops\n");
+  reset();
+
+  //Count loops use a variable to control how many times a loop runs
+  printf("Let's test count loops with icecream!\n");
+  int count = 0;
+  int totalScoops = 0;
+  printf("Our loop will stop once the [count] reaches 5\n");
+
+  while (count != 5)
+  {
+    boldCyan();
+    printf("How many icecream scoops do you want?\n");
+    reset();
+
+    int scoops = 0;
+    scanf("%d",&scoops);
+    getchar();
+
+    totalScoops = totalScoops + scoops;
+
+    count ++;
+
+  }
+  printf("Enjoy your %d icecreams\n\n", totalScoops);
+
+
+  //Sentinel loops
+  boldBlue();
+  printf("Sentinel Loops\n");
+  reset();
+
+  //Sentinel loops use a variable outside the loop called the sentinel
+  int sentinel = 0;
+  //This variable will be changed somewhere inside the loop in order to 'escape'
+  printf("This loops will stop once you want '0' more icecreams\n");
+  
+  totalScoops = 0;
+  while (sentinel == 0 )
+  {
+    int scoops = 0;
+
+    boldCyan();
+    printf("How many scoops of icecream do you want?\n");
+    reset();
+
+    scanf("%d",&scoops);
+    getchar();
+
+    if (scoops == 0)
+    {
+      printf("Enjoy your %d icecreams :)\n\n", totalScoops);
+      //Update the sentinel
+      sentinel = 1;
     }
-    //The {code} inside the curly brackets will continue to execute
+    
+    else
+    {
+      //Counter for total amount of scoops
+      totalScoops = totalScoops + scoops;
+    }
+    
   }
   
+  //Conditional loops use a condition to decide how many times to repeat the loop
+  boldBlue();
+  printf("Conditional Loops\n");
+  reset();
 
-  while
+  //The condition is usually stated in the (brackets) of the while loop
+  printf("This loop will stop once you have over 100 icecream\n");
+  int sum = 0;
+  while (sum <= 100)
+  {
+    boldCyan();
+    printf("How many scoops of icecream do you want?\n");
+    reset();
+
+    int scoops = 0;
+    scanf("%d",&scoops);
+    getchar();
+
+    sum = sum + scoops;
+  }
+
+  printf("Enjoy your %d icecreams!\n\n", sum);
 
   //Here are some examples where if statements, logical operators and while loops can be used!
   //Functions [inputNumber] and evenNumberCheck are at the top of the file
+  boldRed();
+  printf("\nExamples\n\n");
+  reset();
+
+  //Example of a Sentinel Loop:
   int complete = 0;
+  //The sentinel^^
+
   while (complete == 0) {
 
-    int number = inputNumber();
+    int numberExample = inputNumber();
 
-    if (number > 100) {
+    if (numberExample > 100) {
 
-      printf("Please make sure the number is between 1 and 100:\n");
+      printf("Please make sure the number is between 1 and 100\n");
       continue;
 
     }
 
-    else if (number <= 0) {
+    else if (numberExample <= 0) {
 
-      printf("Please make sure the number is between 1 and 100:\n");
+      printf("Please make sure the number is between 1 and 100\n");
       continue;
 
     }
 
     else {
-      if (number / 10 < 1) {
+      if (numberExample / 10 < 1) {
 
         printf("Your number has 1 digit\n");
-        evenNumberCheck(number);
-        break;
+        evenNumberCheck(numberExample);
+        //updating the sentinel
+        complete ++;
 
       }
 
-      else if (number / 10 < 10 && number / 10 >= 1) {
+      else if (numberExample / 10 < 10 && numberExample / 10 >= 1) {
 
         printf("Your number has 2 digits\n");
-        evenNumberCheck(number);
-        break;
+        evenNumberCheck(numberExample);
+        //updating the sentinel
+        complete ++;
 
       }
       else {
 
         printf("Your number has 3 digits\n");
-        evenNumberCheck(number);
-        break;
+        evenNumberCheck(numberExample);
+        //updating the sentinel
+        complete ++;
 
       }
     }
   }
 
+  //Lower case to Upper case
+  printf("\nAnother example with while loops and if statements\n");
+
+  boldCyan();
+  printf("Input a letter:\n");
+  reset();
+
+  while (1==1)
+  {
+    char letter = letterInput();
+  
+    if (letter >= 'A' && letter <= 'Z')
+    {
+      printf("Your letter is upper case\n");
+      letter = letter + ('a' - 'A');
+      printf("The new letter is %c\n", letter);
+      break;
+    }
+
+    else if (letter >= 'a' && letter <= 'z') 
+    {
+      printf("Your letter is lower case\n");
+      letter = letter - ('a' - 'A');
+      printf("The new letter is %c\n", letter);
+      break;
+    }
+
+    else
+    {
+      printf("Please input a letter\n");
+      continue;
+
+    }
+  }
 
 }
