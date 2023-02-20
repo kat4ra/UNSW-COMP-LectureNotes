@@ -21,6 +21,10 @@ void boldBlue () {
   printf("\033[1;34m");
 }
 
+void boldCyan () {
+  printf("\033[1;36m");
+}
+
 void reset () {
   printf("\033[0m");
 }
@@ -140,7 +144,9 @@ int main(void) {
 
   //The scanf keyword waits for the user to input something into the command line
   printf("Scanf allows us read something inputted from the user\n");
+  boldCyan();
   printf("Input an integer:\n");
+  reset();
   //The scanf function is formatted like this
   int userInput;
   scanf("%d", &userInput);
