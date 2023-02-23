@@ -73,7 +73,7 @@ int main(void) {
   boldCyan();
   printf("Are you ready to continue? (y/n)\n");
   reset();
-  //Request the use to answer, yes or no
+  //Request the user to answer, yes or no
   char userAnswer;
   scanf("%c", &userAnswer);
 
